@@ -89,7 +89,11 @@ export const IssueList = styled.ul`
   }
 `;
 
-export const IssueFilter = styled.div`
+interface IIssueFilter {
+  active: number;
+}
+
+export const IssueFilter = styled.div<IIssueFilter>`
   display: flex;
   justify-content: center;
   padding-bottom: 15px;

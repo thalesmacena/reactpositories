@@ -1,6 +1,10 @@
 import styled, { css, keyframes } from 'styled-components';
 
-export const Form = styled.form`
+interface IForm {
+  error: boolean;
+}
+
+export const Form = styled.form<IForm>`
   margin-top: 30px;
   display: flex;
   flex-direction: row;
@@ -26,10 +30,13 @@ const rotate = keyframes`
   }
 `;
 
-export const SubmitButton = styled.button.attrs((props) => ({
-  type: 'submit',
-  disabled: props.loading,
-}))`
+interface IButton {
+  loading: boolean;
+}
+
+export const SubmitButton = styled.button.attrs(() => ({
+  type: 'submit'
+}))<IButton>`
   background: #7159c1;
   border: 0;
   padding: 0 15px;
